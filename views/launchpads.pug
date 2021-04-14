@@ -1,0 +1,26 @@
+extends base
+
+block content
+  section
+    .container
+      h1.heading God Speed SpaceX
+      .card-wrapper
+
+
+        each launchpad in launchpads
+          .card
+            img.card-img(src='img/spacex_launchpad.jpg' alt='launchpad_bg')
+            h1= launchpad.name
+            p.card-status= launchpad.status
+            p.card-details= launchpad.details
+            p.top-launches Top 3 launches
+            ul.launch-btns
+              li
+                a(href=`/launch/${launchpad.launches[0]}`) Launch 1
+                  span  &rArr;
+              li
+                a(href=`/launch/${launchpad.launches[1]}`) Launch 2
+                  span  &rArr;
+              li
+                a(href=`/launch/${launchpad.launches[2]}`) Launch 3
+                  span  &rArr;

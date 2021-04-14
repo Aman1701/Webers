@@ -1,0 +1,33 @@
+extends base2
+
+block content
+    header
+      a(href="#").logo Webers
+    .slider
+
+        for img in launchImageData
+            input(type='radio' name='slider' checked='checked')
+            .imgBx
+                img(src= img)
+                .launcher-name
+                    h2.title= launchData.name
+
+    section.launch-style
+        .shadow
+        .container
+            .content
+                h3.title
+                    | Details
+                    .border
+                p.text= launchData.details
+            .reuse_date
+                h3.title
+                    | Date
+                    .border
+                p.text.text-margin= new Date(launchData.date_local).toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})
+                h3.title
+                    | Usability
+                    .border
+                p.text
+                    | Reused : 
+                    span= launchData.cores[0].reused
